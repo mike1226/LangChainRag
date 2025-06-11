@@ -3,6 +3,7 @@ import runpy
 import sys
 import types
 from unittest.mock import MagicMock
+import os
 
 import pytest
 
@@ -17,6 +18,7 @@ qa_chain_instance = qa_chain_mock.from_chain_type.return_value
 
 
 def setup_module_mocks(monkeypatch):
+    monkeypatch.syspath_prepend(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
     monkeypatch.setitem(sys.modules, 'langchain_community', types.ModuleType('langchain_community'))
 
     embed_mod = types.ModuleType('langchain_community.embeddings')
