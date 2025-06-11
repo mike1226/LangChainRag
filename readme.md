@@ -41,6 +41,10 @@ https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/main
 #建立向量库
 python embeddings_loader.py
 
+# 当需要处理 PDF 文档时，只需在 config.py 中将 DOC_PATH
+# 设置为对应的 PDF 文件路径，embeddings_loader 会自动使用 PyPDFLoader
+# 构建向量库
+
 #运行Qa CLI
 python rag_qa.py
 
